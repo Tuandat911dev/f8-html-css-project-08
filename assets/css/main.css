@@ -74,6 +74,7 @@ body {
   font-size: 1.6rem;
   font-family: Gordita, sans-serif;
   color: var(--text-color);
+  background-color: var(--body-bg);
 }
 
 a {
@@ -1143,6 +1144,12 @@ html {
   --top-act-group-bg-color: #fff;
   --top-act-group-shadow: 0 20px 60px 10px rgba(237, 237, 246, 0.2);
   --top-act-group-separate: #ededf6;
+  --body-bg: #f6f6f6;
+}
+@media (max-width: 991.98px) {
+  html {
+    --header-bg-color: #fff;
+  }
 }
 
 html.dark {
@@ -1153,6 +1160,7 @@ html.dark {
   --top-act-group-bg-color: #292e39;
   --top-act-group-shadow: 0 20px 60px 10px rgba(0, 0, 0, 0.2);
   --top-act-group-separate: #ededf6;
+  --body-bg: #292e39;
 }
 
 .top-act__btn, .top-act__group, .top-act, .navbar__link, .navbar__list, .top-bar {
