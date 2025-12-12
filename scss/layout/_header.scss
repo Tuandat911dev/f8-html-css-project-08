@@ -7,23 +7,45 @@
 
 .header {
   background-color: var(--header-bg-color);
-
-  @include abstracts.breakpoint(lg) {
-    width: 100px;
-  }
-
-  @include abstracts.breakpoint(sm) {
-    width: 50px;
-  }
 }
 
 .top-bar {
   @extend %flexItemCenter;
   padding: 30px 0;
+
+  @include abstracts.breakpoint(lg) {
+    padding: 20px 0;
+  }
+
+  @include abstracts.breakpoint(md) {
+    justify-content: space-between;
+  }
+
+  @include abstracts.breakpoint(sm) {
+    padding: 16px 0;
+  }
+
+  &__more {
+    display: none;
+  }
+
+  &__more {
+    @include abstracts.breakpoint(lg) {
+      display: block;
+    }
+  }
 }
 
 .navbar {
   margin-left: 144px;
+
+  @include abstracts.breakpoint(xl) {
+    margin-left: 50px;
+  }
+
+  @include abstracts.breakpoint(lg) {
+    display: none;
+  }
 
   &__list {
     @extend %flexItemCenter;
@@ -48,6 +70,10 @@
   @extend %flexItemCenter;
   gap: 20px;
 
+  @include abstracts.breakpoint(md) {
+    margin-left: 0px;
+  }
+
   &__group {
     flex: 0 0 auto;
     @extend %flexItemCenter;
@@ -57,6 +83,18 @@
     box-shadow: var(--top-act-group-shadow);
     min-width: 50px;
     height: 50px;
+  }
+
+  &__group {
+    @include abstracts.breakpoint(md) {
+      display: none;
+    }
+  }
+
+  &__group--single {
+    @include abstracts.breakpoint(lg) {
+      display: none;
+    }
   }
 
   &__group--single &__btn {
