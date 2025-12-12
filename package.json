@@ -1,0 +1,23 @@
+{
+  "name": "f8-html-css-project-08",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass scss:assets/css -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tuandat911dev/f8-html-css-project-08.git"
+  },
+  "author": "Tuandat911dev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tuandat911dev/f8-html-css-project-08/issues"
+  },
+  "homepage": "https://github.com/Tuandat911dev/f8-html-css-project-08#readme",
+  "description": "",
+  "devDependencies": {
+    "sass": "^1.96.0"
+  }
+}
