@@ -8,7 +8,7 @@
   transition: 0.25s ease visibility, 0.25s ease opacity;
 
   &__inner {
-    max-height: min(582px, 100vh - 158px);
+    height: min(582px, 100vh - 158px);
     position: relative;
     border-radius: 20px;
     background: var(--dropdown-bg-color);
@@ -33,6 +33,7 @@
     height: 100%;
     width: 292px;
     border-right: 1px solid var(--top-menu-border-color);
+    overflow-y: auto;
   }
 }
 
@@ -67,6 +68,7 @@
     right: 0;
     bottom: 0;
     object-fit: cover;
+    filter: var(--menu-column-icon-color);
   }
 
   &__content {

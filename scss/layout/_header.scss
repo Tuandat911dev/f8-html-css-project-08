@@ -7,6 +7,10 @@
 
 .header {
   background-color: var(--header-bg-color);
+
+  @include abstracts.breakpoint(lg) {
+    box-shadow: var(--header-shadow-color);
+  }
 }
 
 .top-bar {
@@ -38,10 +42,10 @@
 }
 
 .navbar {
-  margin-left: 144px;
+  margin-left: 129px;
 
   @include abstracts.breakpoint(xl) {
-    margin-left: 50px;
+    margin-left: 29px;
   }
 
   @include abstracts.breakpoint(lg) {
@@ -70,14 +74,6 @@
     &:hover .dropdown {
       visibility: visible;
       opacity: 1;
-    }
-
-    &:first-child a {
-      padding-left: 0;
-    }
-
-    &:last-child a {
-      padding-right: 0;
     }
   }
 }

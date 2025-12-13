@@ -14,11 +14,14 @@ html {
   --dropdown-bg-color: #fff;
   --dropdown-shadow-color: 0 40px 90px 20px rgba(200, 200, 200, 0.4);
   --top-menu-border-color: #d2d1d6;
+  --menu-column-icon-color: brightness(0) saturate(100%) invert(2%) sepia(99%)
+    saturate(2972%) hue-rotate(253deg) brightness(101%) contrast(86%);
 
   // Body
   --body-bg: #f6f6f6;
 
   @include abstracts.breakpoint(lg) {
     --header-bg-color: #fff;
+    --header-shadow-color: 0 20px 60px 10px rgba(237, 237, 246, 0.2);
   }
 }
