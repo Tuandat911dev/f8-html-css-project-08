@@ -1367,6 +1367,9 @@ html.dark {
   filter: var(--dropdown-arrow-color);
 }
 
+.top-menu {
+  position: relative;
+}
 .top-menu__main {
   max-height: calc(min(582px, 100vh - 158px) - 30px * 2);
   width: 292px;
@@ -1374,15 +1377,41 @@ html.dark {
   overflow-y: auto;
 }
 
+.sub-menu {
+  position: absolute;
+  inset: 0 0 0 292px;
+  padding-left: 30px;
+  display: flex;
+  column-gap: 77px;
+  visibility: hidden;
+  opacity: 0;
+  transition: 0.25s ease visibility, 0.25s ease opacity;
+}
+.sub-menu__column {
+  max-height: calc(min(582px, 100vh - 158px) - 30px * 2);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
 .menu-column {
   display: flex;
   gap: 14px;
 }
-.menu-column__item:first-child .menu-column__link {
+.menu-column__item:first-child > .menu-column__link {
   padding-top: 0px;
 }
-.menu-column__item:last-child .menu-column__link {
+.menu-column__item:last-child > .menu-column__link {
   padding-bottom: 0px;
+}
+.menu-column__item:hover > .menu-column__link {
+  color: #0071dc;
+  text-shadow: 0.4px 0 0 currentColor;
+}
+.menu-column__item:hover > .sub-menu {
+  visibility: visible;
+  opacity: 1;
 }
 .menu-column__heading {
   margin-top: 6px;
@@ -1399,7 +1428,7 @@ html.dark {
 .menu-column__icon-1 {
   width: 30px;
   height: 30px;
-  object-fit: cover;
+  object-fit: contain;
 }
 .menu-column__icon-2 {
   width: 24px;
@@ -1422,10 +1451,6 @@ html.dark {
   font-weight: 400;
   line-height: 2rem;
   padding: 7px 0;
-}
-.menu-column__link:hover {
-  color: #0071dc;
-  font-weight: 500;
 }
 
 /*# sourceMappingURL=main.css.map */
