@@ -44,10 +44,6 @@
 .navbar {
   margin-left: 129px;
 
-  &__close-btn {
-    display: none;
-  }
-
   @include abstracts.breakpoint(xl) {
     margin-left: 29px;
   }
@@ -72,9 +68,7 @@
     }
 
     &__close-btn {
-      display: block;
       padding: 10px 0;
-      cursor: pointer;
     }
   }
 
@@ -156,17 +150,17 @@
     height: 50px;
   }
 
-  &__group {
-    @include abstracts.breakpoint(md) {
-      display: none;
-    }
-  }
+  // &__group {
+  //   @include abstracts.breakpoint(md) {
+  //     display: none;
+  //   }
+  // }
 
-  &__group--single {
-    @include abstracts.breakpoint(lg) {
-      display: none;
-    }
-  }
+  // &__group--single {
+  //   @include abstracts.breakpoint(lg) {
+  //     display: none;
+  //   }
+  // }
 
   &__group--single &__btn {
     padding: 13px;
