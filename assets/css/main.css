@@ -1249,7 +1249,7 @@ html.dark {
 .navbar__arrow {
   margin-top: 3px;
 }
-.navbar__item:hover .dropdown {
+.navbar__item:hover > .dropdown {
   visibility: visible;
   opacity: 1;
 }
@@ -1389,6 +1389,12 @@ html.dark {
   max-height: calc(min(582px, 100vh - 158px) - 30px * 2);
   overflow-y: auto;
 }
+.sub-menu--not-main {
+  position: static;
+  visibility: inherit;
+  opacity: inherit;
+  padding-left: 0px;
+}
 .sub-menu__column {
   display: flex;
   flex-direction: column;
@@ -1409,7 +1415,7 @@ html.dark {
   color: #0071dc;
   text-shadow: 0.4px 0 0 currentColor;
 }
-.menu-column__item:hover > .sub-menu, .menu-column__item--active > .sub-menu {
+.menu-column__item--active > .sub-menu {
   visibility: visible;
   opacity: 1;
 }

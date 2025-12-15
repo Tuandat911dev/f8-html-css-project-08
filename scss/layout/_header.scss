@@ -71,7 +71,7 @@
   }
 
   &__item {
-    &:hover .dropdown {
+    &:hover > .dropdown {
       visibility: visible;
       opacity: 1;
     }

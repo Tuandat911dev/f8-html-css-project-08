@@ -55,6 +55,13 @@ $main-column-width: 292px;
   max-height: calc(#{$dropdown-height} - #{$dropdown-padding} * 2);
   overflow-y: auto;
 
+  &--not-main {
+    position: static;
+    visibility: inherit;
+    opacity: inherit;
+    padding-left: 0px;
+  }
+
   &__column {
     display: flex;
     flex-direction: column;
@@ -80,7 +87,9 @@ $main-column-width: 292px;
       color: #0071dc;
       text-shadow: 0.4px 0 0 currentColor;
     }
+  }
 
+  &__item--active {
     & > .sub-menu {
       visibility: visible;
       opacity: 1;

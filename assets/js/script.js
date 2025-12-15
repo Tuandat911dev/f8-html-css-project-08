@@ -89,7 +89,6 @@ window.addEventListener("resize", calArrowPos);
 // Tính toán lại vị trí arrow sau khi tải template
 window.addEventListener("template-loaded", calArrowPos);
 
-
 /**
  * Giữ active menu khi hover
  *
@@ -101,35 +100,45 @@ window.addEventListener("template-loaded", calArrowPos);
 window.addEventListener("template-loaded", handleActiveMenu);
 
 function handleActiveMenu() {
-    const dropdowns = $$(".js-dropdown");
-    const menus = $$(".js-menu-list");
-    const activeClass = "menu-column__item--active";
+  const dropdowns = $$(".js-dropdown");
+  const menus = $$(".js-menu-list");
+  const activeClass = "menu-column__item--active";
 
-    const removeActive = (menu) => {
-        menu.querySelector(`.${activeClass}`)?.classList.remove(activeClass);
-    };
+  const removeActive = (menu) => {
+    menu.querySelector(`.${activeClass}`)?.classList.remove(activeClass);
+  };
 
-    const init = () => {
-        menus.forEach((menu) => {
-            const items = menu.children;
-            if (!items.length) return;
+  const removeCurrentActive = () => {
+    menus.forEach((menu) => {
+      const items = menu.children;
+      if (!items.length) return;
 
-            removeActive(menu);
-            items[0].classList.add(activeClass);
-
-            Array.from(items).forEach((item) => {
-                item.onmouseenter = () => {
-                    if (window.innerWidth <= 991) return;
-                    removeActive(menu);
-                    item.classList.add(activeClass);
-                };
-            });
-        });
-    };
-
-    init();
-
-    dropdowns.forEach((dropdown) => {
-        dropdown.onmouseleave = () => init();
+      removeActive(menu);
     });
+  };
+
+  removeCurrentActive();
+
+  const init = () => {
+    menus.forEach((menu) => {
+      const items = menu.children;
+      if (!items.length) return;
+
+      removeActive(menu);
+      items[0].classList.add(activeClass);
+
+      Array.from(items).forEach((item) => {
+        item.onmouseenter = () => {
+          if (window.innerWidth <= 991) return;
+          removeActive(menu);
+          item.classList.add(activeClass);
+        };
+      });
+    });
+  };
+
+  dropdowns.forEach((dropdown) => {
+    dropdown.onmouseenter = () => init();
+    dropdown.onmouseleave = () => removeCurrentActive();
+  });
 }
