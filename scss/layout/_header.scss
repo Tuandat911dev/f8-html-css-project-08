@@ -44,16 +44,60 @@
 .navbar {
   margin-left: 129px;
 
+  &__close-btn {
+    display: none;
+  }
+
   @include abstracts.breakpoint(xl) {
     margin-left: 29px;
   }
 
   @include abstracts.breakpoint(lg) {
-    display: none;
+    position: fixed;
+    inset: 0 50% 0 0;
+    background-color: #fff;
+    margin-left: 0;
+    z-index: 9;
+    padding: 40px;
+    translate: -100%;
+    transition: 0.5s ease translate;
+
+    &.show {
+      translate: 0;
+    }
+
+    &.show ~ &__overlay {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    &__close-btn {
+      display: block;
+      padding: 10px 0;
+      cursor: pointer;
+    }
+  }
+
+  &__overlay {
+    visibility: hidden;
+    opacity: 0;
+
+    @include abstracts.breakpoint(lg) {
+      position: fixed;
+      inset: 0;
+      background: rgba($color: #000, $alpha: 0.4);
+      z-index: 8;
+      transition: 0.5s ease visibility, 0.5s ease opacity;
+    }
   }
 
   &__list {
     @extend %flexItemCenter;
+
+    @include abstracts.breakpoint(lg) {
+      flex-direction: column;
+      align-items: flex-start;
+    }
   }
 
   &__link {
@@ -64,6 +108,12 @@
     font-weight: 500;
     line-height: 1.5;
     padding: 0 15px;
+
+    @include abstracts.breakpoint(lg) {
+      padding: 0;
+      font-size: 1.6rem;
+      justify-content: space-between;
+    }
   }
 
   &__arrow {
@@ -74,6 +124,14 @@
     &:hover > .dropdown {
       visibility: visible;
       opacity: 1;
+    }
+
+    @include abstracts.breakpoint(lg) {
+      width: 100%;
+
+      &:hover > .dropdown {
+        display: none;
+      }
     }
   }
 }
