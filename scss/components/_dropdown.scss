@@ -52,10 +52,10 @@ $main-column-width: 292px;
   visibility: hidden;
   opacity: 0;
   transition: 0.25s ease visibility, 0.25s ease opacity;
+  max-height: calc(#{$dropdown-height} - #{$dropdown-padding} * 2);
+  overflow-y: auto;
 
   &__column {
-    max-height: calc(#{$dropdown-height} - #{$dropdown-padding} * 2);
-    overflow-y: auto;
     display: flex;
     flex-direction: column;
     gap: calc(#{$dropdown-padding} - 9px);
@@ -74,7 +74,8 @@ $main-column-width: 292px;
     padding-bottom: 0px;
   }
 
-  &__item:hover {
+  &__item:hover,
+  &__item--active {
     & > .menu-column__link {
       color: #0071dc;
       text-shadow: 0.4px 0 0 currentColor;
