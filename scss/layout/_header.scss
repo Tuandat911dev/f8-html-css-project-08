@@ -72,6 +72,11 @@
     }
   }
 
+  @include abstracts.breakpoint(sm) {
+    inset: 0 12% 0 0;
+    padding: 20px;
+  }
+
   &__overlay {
     visibility: hidden;
     opacity: 0;
@@ -91,6 +96,11 @@
     @include abstracts.breakpoint(lg) {
       flex-direction: column;
       align-items: flex-start;
+      height: auto;
+      max-height: calc(100% - 40px);
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      scrollbar-width: none;
     }
   }
 
@@ -103,10 +113,40 @@
     line-height: 1.5;
     padding: 0 15px;
 
+    & + .dropdown {
+      height: 0px;
+      overflow: hidden;
+      visibility: hidden;
+      opacity: 0;
+      transition: 0.3s ease visibility, 0.3s ease opacity;
+    }
+
     @include abstracts.breakpoint(lg) {
       padding: 0;
       font-size: 1.6rem;
       justify-content: space-between;
+
+      & .navbar__arrow {
+        rotate: -90deg;
+      }
+
+      &.active .navbar__arrow {
+        rotate: 0deg;
+      }
+
+      & + .dropdown {
+        height: 0px;
+        overflow: hidden;
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.3s ease visibility, 0.3s ease opacity, 0.3s ease height;
+      }
+
+      &.active + .dropdown {
+        overflow: visible;
+        visibility: visible;
+        opacity: 1;
+      }
     }
   }
 
@@ -115,17 +155,8 @@
   }
 
   &__item {
-    &:hover > .dropdown {
-      visibility: visible;
-      opacity: 1;
-    }
-
     @include abstracts.breakpoint(lg) {
       width: 100%;
-
-      &:hover > .dropdown {
-        display: none;
-      }
     }
   }
 }
@@ -149,18 +180,6 @@
     min-width: 50px;
     height: 50px;
   }
-
-  // &__group {
-  //   @include abstracts.breakpoint(md) {
-  //     display: none;
-  //   }
-  // }
-
-  // &__group--single {
-  //   @include abstracts.breakpoint(lg) {
-  //     display: none;
-  //   }
-  // }
 
   &__group--single &__btn {
     padding: 13px;

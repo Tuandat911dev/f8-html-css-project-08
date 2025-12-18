@@ -13,6 +13,13 @@ $main-column-width: 292px;
   opacity: 0;
   transition: 0.25s ease visibility, 0.25s ease opacity;
 
+  @include abstracts.breakpoint(lg) {
+    position: initial;
+    visibility: visible;
+    opacity: 1;
+    padding-top: 0px;
+  }
+
   &__inner {
     max-height: $dropdown-height;
     position: relative;
@@ -29,6 +36,18 @@ $main-column-width: 292px;
       transform: translateX(-50%);
       filter: var(--dropdown-arrow-color);
     }
+
+    @include abstracts.breakpoint(lg) {
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+      padding: 0px;
+      max-height: unset;
+
+      &::before {
+        content: none;
+      }
+    }
   }
 }
 
@@ -40,6 +59,13 @@ $main-column-width: 292px;
     width: $main-column-width;
     border-right: 1px solid var(--top-menu-border-color);
     overflow-y: auto;
+
+    @include abstracts.breakpoint(lg) {
+      width: 100%;
+      height: auto;
+      border-right: none;
+      max-height: unset;
+    }
   }
 }
 
@@ -51,12 +77,22 @@ $main-column-width: 292px;
   column-gap: 77px;
   visibility: hidden;
   opacity: 0;
-  transition: 0.25s ease visibility, 0.25s ease opacity;
+  transition: 0.25s ease visibility, 0.25s ease opacity, 0.25s ease height;
   max-height: calc(#{$dropdown-height} - #{$dropdown-padding} * 2);
   overflow-y: auto;
 
+  @include abstracts.breakpoint(lg) {
+    position: initial;
+    flex-direction: column;
+    column-gap: 0px;
+    padding-left: 0px;
+    max-height: unset;
+    visibility: visible;
+    opacity: 1;
+  }
+
   &--not-main {
-    position: static;
+    position: initial;
     visibility: inherit;
     opacity: inherit;
     padding-left: 0px;
@@ -69,9 +105,17 @@ $main-column-width: 292px;
   }
 }
 
+.navbar__arrow {
+  transition: 0.3s ease rotate;
+}
+
 .menu-column {
   display: flex;
   gap: 14px;
+
+  @include abstracts.breakpoint(lg) {
+    margin-top: 10px;
+  }
 
   &__item:first-child > &__link {
     padding-top: 0px;
@@ -81,7 +125,6 @@ $main-column-width: 292px;
     padding-bottom: 0px;
   }
 
-  &__item:hover,
   &__item--active {
     & > .menu-column__link {
       color: #0071dc;
@@ -101,6 +144,10 @@ $main-column-width: 292px;
     font-size: 1.6rem;
     font-weight: 500;
     line-height: 1.5;
+
+    @include abstracts.breakpoint(lg) {
+      margin-bottom: 26px;
+    }
   }
 
   &__icon {
@@ -111,6 +158,10 @@ $main-column-width: 292px;
 
     @include abstracts.breakpoint(xl) {
       display: none;
+    }
+
+    @include abstracts.breakpoint(lg) {
+      display: block;
     }
   }
 
@@ -136,6 +187,10 @@ $main-column-width: 292px;
 
   &__list {
     margin-top: 26px;
+
+    @include abstracts.breakpoint(lg) {
+      margin-top: 5px;
+    }
   }
 
   &__link {
@@ -144,5 +199,42 @@ $main-column-width: 292px;
     font-weight: 400;
     line-height: 2rem;
     padding: 7px 0;
+    transition: 0.25s ease color, 0.25s ease text-shadow;
+
+    & .navbar__arrow {
+      display: none;
+    }
+
+    @include abstracts.breakpoint(lg) {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      &.has-submenu.active {
+        color: #0071dc;
+        text-shadow: 0.18px 0 0 currentColor, -0.18px 0 0 currentColor;
+      }
+
+      &.has-submenu .navbar__arrow {
+        rotate: -90deg;
+        display: block;
+      }
+
+      &.has-submenu.active .navbar__arrow {
+        rotate: 0deg;
+      }
+
+      &.has-submenu + .sub-menu {
+        height: 0px;
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      &.has-submenu.active + .sub-menu {
+        height: auto;
+        visibility: visible;
+        opacity: 1;
+      }
+    }
   }
 }
