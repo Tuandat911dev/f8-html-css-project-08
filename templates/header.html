@@ -14,8 +14,22 @@
     <!-- Navbar -->
     <nav class="navbar hide" id="navbar">
       <button class="navbar__close-btn js-toggle d-none d-lg-block" toggle-target="#navbar">
-        <img src="./assets/icons/arrow-left.svg" alt="" />
+        <img src="./assets/icons/arrow-left.svg" alt="" class="icon" />
       </button>
+
+      <div class="navbar__feat d-none d-md-flex">
+        <a href="#!" class="navbar__feat-link">
+          <img src="./assets/icons/buy.svg" alt="" class="icon navbar__feat-icon" />
+          <span class="navbar__feat-text">Cart</span>
+          <span class="navbar__feat-number">9</span>
+        </a>
+        <a href="#!" class="navbar__feat-link">
+          <img src="./assets/icons/heart.svg" alt="" class="icon navbar__feat-icon" />
+          <span class="navbar__feat-text">Favorite</span>
+          <span class="navbar__feat-number">6</span>
+        </a>
+      </div>
+
       <ul class="navbar__list js-menu-list js-dropdown-list">
         <li class="navbar__item">
           <a href="#!" class="navbar__link">

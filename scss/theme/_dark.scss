@@ -2,8 +2,8 @@
 
 html.dark {
   --text-color: #fff;
-  --icon-color: brightness(0) saturate(100%) invert(100%) sepia(0%)
-    saturate(7478%) hue-rotate(281deg) brightness(101%) contrast(109%);
+  --icon-color: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7478%) hue-rotate(281deg) brightness(101%)
+    contrast(109%);
 
   // Header
   --header-bg-color: #171c28;
@@ -15,14 +15,17 @@ html.dark {
     --header-shadow-color: 0 20px 60px 10px rgba(0, 0, 0, 0.2);
   }
 
+  // navbar
+  --navbar-bg-color: #292e39;
+
   // Dropdown
   --dropdown-bg-color: #2f3441;
   --dropdown-shadow-color: 0 40px 90px 20px rgba(23, 28, 40, 0.4);
-  --dropdown-arrow-color: brightness(0) saturate(100%) invert(15%) sepia(13%)
-    saturate(1134%) hue-rotate(185deg) brightness(95%) contrast(84%);
+  --dropdown-arrow-color: brightness(0) saturate(100%) invert(15%) sepia(13%) saturate(1134%) hue-rotate(185deg)
+    brightness(95%) contrast(84%);
   --top-menu-border-color: #171c28;
-  --menu-column-icon-color: brightness(0) saturate(100%) invert(94%) sepia(4%)
-    saturate(1331%) hue-rotate(197deg) brightness(106%) contrast(96%);
+  --menu-column-icon-color: brightness(0) saturate(100%) invert(94%) sepia(4%) saturate(1331%) hue-rotate(197deg)
+    brightness(106%) contrast(96%);
   // Body
   --body-bg: #292e39;
 }

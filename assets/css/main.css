@@ -1239,6 +1239,7 @@ html {
   --top-menu-border-color: #d2d1d6;
   --menu-column-icon-color: brightness(0) saturate(100%) invert(2%) sepia(99%)
     saturate(2972%) hue-rotate(253deg) brightness(101%) contrast(86%);
+  --navbar-bg-color: #fff;
   --body-bg: #f6f6f6;
 }
 @media (max-width: 991.98px) {
@@ -1250,8 +1251,8 @@ html {
 
 html.dark {
   --text-color: #fff;
-  --icon-color: brightness(0) saturate(100%) invert(100%) sepia(0%)
-    saturate(7478%) hue-rotate(281deg) brightness(101%) contrast(109%);
+  --icon-color: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7478%) hue-rotate(281deg) brightness(101%)
+    contrast(109%);
   --header-bg-color: #171c28;
   --top-act-group-bg-color: #292e39;
   --top-act-group-shadow: 0 20px 60px 10px rgba(0, 0, 0, 0.2);
@@ -1263,13 +1264,14 @@ html.dark {
   }
 }
 html.dark {
+  --navbar-bg-color: #292e39;
   --dropdown-bg-color: #2f3441;
   --dropdown-shadow-color: 0 40px 90px 20px rgba(23, 28, 40, 0.4);
-  --dropdown-arrow-color: brightness(0) saturate(100%) invert(15%) sepia(13%)
-    saturate(1134%) hue-rotate(185deg) brightness(95%) contrast(84%);
+  --dropdown-arrow-color: brightness(0) saturate(100%) invert(15%) sepia(13%) saturate(1134%) hue-rotate(185deg)
+    brightness(95%) contrast(84%);
   --top-menu-border-color: #171c28;
-  --menu-column-icon-color: brightness(0) saturate(100%) invert(94%) sepia(4%)
-    saturate(1331%) hue-rotate(197deg) brightness(106%) contrast(96%);
+  --menu-column-icon-color: brightness(0) saturate(100%) invert(94%) sepia(4%) saturate(1331%) hue-rotate(197deg)
+    brightness(106%) contrast(96%);
   --body-bg: #292e39;
 }
 
@@ -1327,7 +1329,7 @@ html.dark {
   .navbar {
     position: fixed;
     inset: 0 50% 0 0;
-    background-color: #fff;
+    background-color: var(--navbar-bg-color);
     margin-left: 0;
     z-index: 9;
     padding: 40px;
@@ -1428,6 +1430,32 @@ html.dark {
   .navbar__item {
     width: 100%;
   }
+}
+.navbar__feat {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  flex-direction: column;
+  gap: 20px;
+}
+.navbar__feat-link {
+  display: flex;
+  align-items: center;
+}
+.navbar__feat-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+.navbar__feat-text, .navbar__feat-number {
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+.navbar__feat-text {
+  margin-left: 15px;
+}
+.navbar__feat-number {
+  margin-left: auto;
 }
 
 .top-act {
