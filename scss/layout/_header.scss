@@ -118,7 +118,14 @@
       overflow: hidden;
       visibility: hidden;
       opacity: 0;
-      transition: 0.3s ease visibility, 0.3s ease opacity;
+      transition: 0.3s ease visibility, 0.3s ease opacity, 0.3s;
+    }
+
+    &.active + .dropdown {
+      height: auto;
+      overflow: visible;
+      visibility: visible;
+      opacity: 1;
     }
 
     @include abstracts.breakpoint(lg) {

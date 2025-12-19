@@ -106,26 +106,14 @@ function handleActiveMenu() {
   menus.forEach((menu) => {
     const items = menu.children;
     if (!items.length) return;
-    if (window.innerWidth > 991) items[0].firstElementChild.classList.add(activeClass);
-
     Array.from(items).forEach((item) => {
       item.onmouseenter = () => {
         if (window.innerWidth <= 991) return;
-        if (item.firstElementChild.classList.contains(activeClass)) {
-          item.firstElementChild.classList.remove(activeClass);
-          const dropdown = item.firstElementChild.nextElementSibling;
-          dropdown.style.height = "auto";
-          const height = dropdown.scrollHeight;
-          dropdown.style.height = "0px";
-          dropdown.offsetHeight;
-          dropdown.style.height = height + "px";
-        } else {
-          item.firstElementChild.classList.add(activeClass);
-          const dropdown = item.firstElementChild.nextElementSibling;
-          dropdown.style.height = dropdown.scrollHeight + "px";
-          dropdown.offsetHeight;
-          dropdown.style.height = "0px";
-        }
+        item.firstElementChild.classList.add(activeClass);
+      };
+      item.onmouseleave = () => {
+        if (window.innerWidth <= 991) return;
+        item.firstElementChild.classList.remove(activeClass);
       };
       item.onclick = () => {
         if (window.innerWidth > 991) return;
@@ -164,21 +152,11 @@ function handleActiveSubMenu() {
     Array.from(items).forEach((item) => {
       item.onmouseenter = () => {
         if (window.innerWidth <= 991) return;
-        if (item.firstElementChild.classList.contains(activeClass)) {
-          item.firstElementChild.classList.remove(activeClass);
-          const submenu = item.firstElementChild.nextElementSibling;
-          submenu.style.height = "auto";
-          const height = submenu.scrollHeight;
-          submenu.style.height = "0px";
-          submenu.offsetHeight;
-          submenu.style.height = height + "px";
-        } else {
-          item.firstElementChild.classList.add(activeClass);
-          const submenu = item.firstElementChild.nextElementSibling;
-          submenu.style.height = submenu.scrollHeight + "px";
-          submenu.offsetHeight;
-          submenu.style.height = "0px";
-        }
+        item.firstElementChild.classList.add(activeClass);
+      };
+      item.onmouseleave = () => {
+        if (window.innerWidth <= 991) return;
+        item.firstElementChild.classList.remove(activeClass);
       };
       item.onclick = (e) => {
         e.stopPropagation();

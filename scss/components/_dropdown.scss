@@ -206,15 +206,27 @@ $main-column-width: 292px;
       display: none;
     }
 
+    &.has-submenu.active, &:hover {
+      color: #0071dc;
+      text-shadow: 0.18px 0 0 currentColor, -0.18px 0 0 currentColor;
+    }
+
+    &.has-submenu + .sub-menu {
+      height: 0px;
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    &.has-submenu.active + .sub-menu {
+      height: auto;
+      visibility: visible;
+      opacity: 1;
+    }
+
     @include abstracts.breakpoint(lg) {
       display: flex;
       align-items: center;
       justify-content: space-between;
-
-      &.has-submenu.active {
-        color: #0071dc;
-        text-shadow: 0.18px 0 0 currentColor, -0.18px 0 0 currentColor;
-      }
 
       &.has-submenu .navbar__arrow {
         rotate: -90deg;
@@ -223,17 +235,6 @@ $main-column-width: 292px;
 
       &.has-submenu.active .navbar__arrow {
         rotate: 0deg;
-      }
-
-      &.has-submenu + .sub-menu {
-        height: 0px;
-        visibility: hidden;
-        opacity: 0;
-      }
-
-      &.has-submenu.active + .sub-menu {
-        visibility: visible;
-        opacity: 1;
       }
     }
   }

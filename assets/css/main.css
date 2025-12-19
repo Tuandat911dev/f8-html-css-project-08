@@ -56,6 +56,7 @@ table {
 ::before,
 ::after {
   box-sizing: border-box;
+  scrollbar-width: none;
 }
 
 a,
@@ -1387,7 +1388,13 @@ html.dark {
   overflow: hidden;
   visibility: hidden;
   opacity: 0;
-  transition: 0.3s ease visibility, 0.3s ease opacity;
+  transition: 0.3s ease visibility, 0.3s ease opacity, 0.3s;
+}
+.navbar__link.active + .dropdown {
+  height: auto;
+  overflow: visible;
+  visibility: visible;
+  opacity: 1;
 }
 @media (max-width: 991.98px) {
   .navbar__link {
@@ -1690,15 +1697,25 @@ html.dark {
 .menu-column__link .navbar__arrow {
   display: none;
 }
+.menu-column__link.has-submenu.active, .menu-column__link:hover {
+  color: #0071dc;
+  text-shadow: 0.18px 0 0 currentColor, -0.18px 0 0 currentColor;
+}
+.menu-column__link.has-submenu + .sub-menu {
+  height: 0px;
+  visibility: hidden;
+  opacity: 0;
+}
+.menu-column__link.has-submenu.active + .sub-menu {
+  height: auto;
+  visibility: visible;
+  opacity: 1;
+}
 @media (max-width: 991.98px) {
   .menu-column__link {
     display: flex;
     align-items: center;
     justify-content: space-between;
-  }
-  .menu-column__link.has-submenu.active {
-    color: #0071dc;
-    text-shadow: 0.18px 0 0 currentColor, -0.18px 0 0 currentColor;
   }
   .menu-column__link.has-submenu .navbar__arrow {
     rotate: -90deg;
@@ -1706,15 +1723,6 @@ html.dark {
   }
   .menu-column__link.has-submenu.active .navbar__arrow {
     rotate: 0deg;
-  }
-  .menu-column__link.has-submenu + .sub-menu {
-    height: 0px;
-    visibility: hidden;
-    opacity: 0;
-  }
-  .menu-column__link.has-submenu.active + .sub-menu {
-    visibility: visible;
-    opacity: 1;
   }
 }
 
