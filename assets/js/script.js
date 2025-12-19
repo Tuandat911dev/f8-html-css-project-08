@@ -100,7 +100,6 @@ window.addEventListener("template-loaded", calArrowPos);
 window.addEventListener("template-loaded", handleActiveMenu);
 
 function handleActiveMenu() {
-  const dropdowns = $$(".js-dropdown");
   const menus = $$(".js-menu-list");
   const activeClass = "active";
 
@@ -139,7 +138,64 @@ function handleActiveMenu() {
           const dropdown = item.firstElementChild.nextElementSibling;
           dropdown.style.height = `${dropdown.scrollHeight + "px"}`;
         }
-        item.scrollIntoView();
+      };
+    });
+  });
+}
+
+// submenu
+window.addEventListener("template-loaded", handleActiveSubMenu);
+
+function calculateParentHeight(element, height) {
+  console.log(element);
+  console.log(element.scrollHeight);
+  element.style.height = `${element.scrollHeight + height + "px"}`;
+}
+
+function handleActiveSubMenu() {
+  const menus = $$(".js-submenu-list");
+  const activeClass = "active";
+
+  menus.forEach((menu) => {
+    const items = menu.children;
+    if (!items.length) return;
+    if (window.innerWidth > 991) items[0].firstElementChild.classList.add(activeClass);
+
+    Array.from(items).forEach((item) => {
+      item.onmouseenter = () => {
+        if (window.innerWidth <= 991) return;
+        if (item.firstElementChild.classList.contains(activeClass)) {
+          item.firstElementChild.classList.remove(activeClass);
+          const submenu = item.firstElementChild.nextElementSibling;
+          submenu.style.height = "auto";
+          const height = submenu.scrollHeight;
+          submenu.style.height = "0px";
+          submenu.offsetHeight;
+          submenu.style.height = height + "px";
+        } else {
+          item.firstElementChild.classList.add(activeClass);
+          const submenu = item.firstElementChild.nextElementSibling;
+          submenu.style.height = submenu.scrollHeight + "px";
+          submenu.offsetHeight;
+          submenu.style.height = "0px";
+        }
+      };
+      item.onclick = (e) => {
+        e.stopPropagation();
+        if (window.innerWidth > 991) return;
+        if (item.firstElementChild.classList.contains(activeClass)) {
+          const dropdown = item.closest(".dropdown");
+          item.firstElementChild.classList.remove(activeClass);
+          const submenu = item.firstElementChild.nextElementSibling;
+          submenu.style.height = `0px`;
+          calculateParentHeight(dropdown, -submenu.scrollHeight);
+        } else {
+          const dropdown = item.closest(".dropdown");
+          item.firstElementChild.classList.add(activeClass);
+          const submenu = item.firstElementChild.nextElementSibling;
+          submenu.style.height = `${submenu.scrollHeight + "px"}`;
+          calculateParentHeight(dropdown, submenu.scrollHeight);
+        }
       };
     });
   });

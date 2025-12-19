@@ -77,9 +77,10 @@ $main-column-width: 292px;
   column-gap: 77px;
   visibility: hidden;
   opacity: 0;
-  transition: 0.25s ease visibility, 0.25s ease opacity, 0.25s ease height;
+  transition: 0.3s ease visibility, 0.3s ease opacity, 0.3s ease height;
   max-height: calc(#{$dropdown-height} - #{$dropdown-padding} * 2);
   overflow-y: auto;
+  scrollbar-width: none;
 
   @include abstracts.breakpoint(lg) {
     position: initial;
@@ -231,7 +232,6 @@ $main-column-width: 292px;
       }
 
       &.has-submenu.active + .sub-menu {
-        height: auto;
         visibility: visible;
         opacity: 1;
       }

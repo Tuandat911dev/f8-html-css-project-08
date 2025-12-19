@@ -1572,9 +1572,10 @@ html.dark {
   column-gap: 77px;
   visibility: hidden;
   opacity: 0;
-  transition: 0.25s ease visibility, 0.25s ease opacity, 0.25s ease height;
+  transition: 0.3s ease visibility, 0.3s ease opacity, 0.3s ease height;
   max-height: calc(min(582px, 100vh - 158px) - 30px * 2);
   overflow-y: auto;
+  scrollbar-width: none;
 }
 @media (max-width: 991.98px) {
   .sub-menu {
@@ -1712,7 +1713,6 @@ html.dark {
     opacity: 0;
   }
   .menu-column__link.has-submenu.active + .sub-menu {
-    height: auto;
     visibility: visible;
     opacity: 1;
   }
